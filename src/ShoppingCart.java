@@ -1,7 +1,11 @@
+import java.text.NumberFormat;
 import java.util.*;
 
 public class ShoppingCart {
+
     private double totalPrice;
+
+    private String formattedPrice;
 
     List<Product> products=new ArrayList<>();
 
@@ -25,7 +29,7 @@ public class ShoppingCart {
         return products;
     }
 
-    public Map<String, Integer> howManySameProducts(){
+    /*public Map<String, Integer> howManySameProducts(){
         List<String> productNamesList =new ArrayList<>();
         for(Product product: products){
             productNamesList.add(product.getName());
@@ -38,15 +42,21 @@ public class ShoppingCart {
         }
         System.out.println(hm);
         return hm;
-    }
-
-    public double calculateTotalPrice(){
-        String productInThreePlusQuantity;
-      /* for (Map.Entry<String, Integer> val : howManySameProducts().entrySet()) {
+         String productInThreePlusQuantity;
+      for (Map.Entry<String, Integer> val : howManySameProducts().entrySet()) {
             System.out.println("Element " + val.getKey() + " "
                     + "occurs"
                     + ": " + val.getValue() + " times");
-        }*/
+        }
+    }*/
+
+   /* List<Product> makeListEveryFourthItemSameProductCostsZero(){
+        List<Product> everyFourthItemSameProductCostsZero= new ArrayList<>();
+
+        return EveryFourthItemSameProductCostsZero;
+    }*/
+
+    public double calculateTotalPrice(){
 
         for(Product product: products){
             totalPrice+=product.getPrice();
@@ -54,7 +64,16 @@ public class ShoppingCart {
         if(products.size()>=5){
             totalPrice=totalPrice*0.9;
         }
+        System.out.println(totalPrice);
         return totalPrice;
+    }
+
+    public String formattedTotalPrice(){
+        this.calculateTotalPrice();
+        NumberFormat formatter =
+                NumberFormat.getCurrencyInstance();
+        formattedPrice=formatter.format(totalPrice);
+        return formattedPrice;
     }
 
 }

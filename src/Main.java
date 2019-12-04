@@ -21,7 +21,7 @@ public class Main {
         shoppingCart.fillShoppingCart(p6);
         shoppingCart.fillShoppingCart(p7);
 
-        System.out.println(shoppingCart.calculateTotalPrice());
+        System.out.println(shoppingCart.formattedTotalPrice());
         System.out.println("Products in the cart are "+ shoppingCart.getProducts());
     }
 }
